@@ -1,0 +1,17 @@
+server:
+  servlet:
+    context-path: /producer
+  port: 8002
+
+spring:
+  kafka:
+    bootstrap-servers:
+    - 39.108.113.145:9092
+    consumer:      enable-auto-commit: false
+      auto-offset-reset: earliest
+      key-serializer:
+        org.apache.kafka.common.serialization.StringSerializer
+      value-serializer:
+        org.apache.kafka.common.serialization.StringSerializer
+    listener:      ack-mode: manual
+      concurrency: 5
